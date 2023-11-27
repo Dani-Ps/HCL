@@ -100,7 +100,7 @@ def eliminar_libro(biblioteca):
 
 def validar_longitud(valor, mensaje):
     """Valida la longitud de una cadena."""
-    while not (1 <= len(valor) <= 50):
+    while not 1 <= len(valor) <= 50:
         print(f"{mensaje} debe tener entre 1 y 50 caracteres.")
         valor = input(f"Ingrese {mensaje.lower()}: ")
     return valor
