@@ -23,10 +23,23 @@ if __name__ == "__main__":
                 isbn = input("Ingrese el ISBN del libro: ")
                 if len(isbn) == 13 and isbn.isdigit():
                     titulo = input("Ingrese el título del libro: ")
+                    # Validar la longitud del título
+                    while not (1 <= len(titulo) <= 50):
+                        print("El título debe tener entre 1 y 50 caracteres.")
+                        titulo = input("Ingrese el título del libro: ")
+
                     autor = input("Ingrese el autor del libro: ")
-                    anio_publicacion = input(
-                        "Ingrese el año de publicación del libro: "
-                    )
+                    # Validar la longitud del autor
+                    while not (1 <= len(autor) <= 50):
+                        print("El autor debe tener entre 1 y 50 caracteres.")
+                        autor = input("Ingrese el autor del libro: ")
+
+                    anio_publicacion = input("Ingrese el año de publicación del libro: ")
+                    # Validar que el año de publicación sea un número de 4 dígitos
+                    while not (len(anio_publicacion) == 4 and anio_publicacion.isdigit()):
+                        print("El año de publicación debe ser un número de 4 dígitos.")
+                        anio_publicacion = input("Ingrese el año de publicación del libro: ")
+
                     libro = Libro(isbn, titulo, autor, anio_publicacion)
                     biblioteca.agregar_libro(libro)
                 else:
