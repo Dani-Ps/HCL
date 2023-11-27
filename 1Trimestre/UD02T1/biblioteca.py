@@ -9,10 +9,13 @@ class Biblioteca:
     def __init__(self):
         """Inicializa una instancia de la clase Biblioteca con una lista vacía de libros."""
         self.libros = []
+        self.lista_isbn = []
+
 
     def agregar_libro(self, libro):
         """Agrega un libro a la biblioteca."""
         self.libros.append(libro)
+        self.lista_isbn.append(libro.isbn)
 
     def actualizar_libro(self, isbn, titulo, autor, anio_publicacion):
         """Actualiza la información de un libro en la biblioteca, identificado por su ISBN."""
@@ -37,6 +40,7 @@ class Biblioteca:
         for libro in self.libros:
             if libro.isbn == isbn:
                 self.libros.remove(libro)
+                self.lista_isbn.remove(isbn)
                 return True
         return False
 

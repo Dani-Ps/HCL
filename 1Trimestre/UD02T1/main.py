@@ -1,9 +1,11 @@
+""" Este módulo contiene la implementación de la clase main."""
 from biblioteca import Biblioteca
 from libro import Libro
 
 if __name__ == "__main__":
     biblioteca = Biblioteca()
     biblioteca.cargar_desde_archivo("biblioteca.json")
+
 
     while True:
         print("\nMenú:")
@@ -49,18 +51,28 @@ if __name__ == "__main__":
                 isbn = input("Ingrese el ISBN del libro que desea actualizar: ")
                 if len(isbn) == 13 and isbn.isdigit():
                     titulo = input("Ingrese el nuevo título del libro: ")
+                    # Validar la longitud del nuevo título
+                    while not (1 <= len(titulo) <= 50):
+                        print("El título debe tener entre 1 y 50 caracteres.")
+                        titulo = input("Ingrese el nuevo título del libro: ")
                     autor = input("Ingrese el nuevo autor del libro: ")
-                    anio_publicacion = input(
-                        "Ingrese el nuevo año de publicación del libro: "
-                    )
-                    if biblioteca.actualizar_libro(
-                        isbn, titulo, autor, anio_publicacion
-                    ):
+                    # Validar la longitud del nuevo autor
+                    while not (1 <= len(autor) <= 50):
+                        print("El autor debe tener entre 1 y 50 caracteres.")
+                        autor = input("Ingrese el nuevo autor del libro: ")
+                    anio_publicacion = input("Ingrese el nuevo año de publicación del libro: ")
+                    # Validar que el nuevo año de publicación sea un número de 4 dígitos
+                    while not (len(anio_publicacion) == 4 and anio_publicacion.isdigit()):
+                        print("El año de publicación debe ser un número de 4 dígitos.")
+                    anio_publicacion = input("Ingrese el nuevo año de publicación del libro: ")
+
+                    if biblioteca.actualizar_libro(isbn, titulo, autor, anio_publicacion):
                         print("Libro actualizado exitosamente.")
                     else:
                         print("ISBN no encontrado. No se pudo actualizar el libro.")
                 else:
                     print("ISBN inválido. Debe tener 13 dígitos y ser numérico.")
+
             elif opcion == 3:
                 isbn = input("Ingrese el ISBN del libro que desea buscar: ")
                 libro = biblioteca.buscar_libro(isbn)
