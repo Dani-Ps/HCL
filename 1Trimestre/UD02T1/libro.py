@@ -28,3 +28,14 @@ class Libro:
             "autor": self.autor,
             "anio_publicacion": self.anio_publicacion,
         }
+
+    def __validar_isbn(self, isbn):
+        """Valida que el ISBN tenga 13 caracteres y sean todos números."""
+        return len(isbn) == 13 and isbn.isdigit()
+
+    def set_isbn(self, isbn):
+        """Establece el ISBN del libro con validación."""
+        if self.__validar_isbn(isbn):
+            self.isbn = isbn
+        else:
+            print("ISBN inválido. Debe tener 13 dígitos y ser numérico.")

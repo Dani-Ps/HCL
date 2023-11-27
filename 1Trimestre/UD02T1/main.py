@@ -1,4 +1,3 @@
-
 from biblioteca import Biblioteca
 from libro import Libro
 
@@ -22,22 +21,33 @@ if __name__ == "__main__":
 
             if opcion == 1:
                 isbn = input("Ingrese el ISBN del libro: ")
-                titulo = input("Ingrese el título del libro: ")
-                autor = input("Ingrese el autor del libro: ")
-                anio_publicacion = input("Ingrese el año de publicación del libro: ")
-                libro = Libro(isbn, titulo, autor, anio_publicacion)
-                biblioteca.agregar_libro(libro)
+                if len(isbn) == 13 and isbn.isdigit():
+                    titulo = input("Ingrese el título del libro: ")
+                    autor = input("Ingrese el autor del libro: ")
+                    anio_publicacion = input(
+                        "Ingrese el año de publicación del libro: "
+                    )
+                    libro = Libro(isbn, titulo, autor, anio_publicacion)
+                    biblioteca.agregar_libro(libro)
+                else:
+                    print("ISBN inválido. Debe tener 13 dígitos y ser numérico.")
 
             elif opcion == 2:
                 isbn = input("Ingrese el ISBN del libro que desea actualizar: ")
-                titulo = input("Ingrese el nuevo título del libro: ")
-                autor = input("Ingrese el nuevo autor del libro: ")
-                anio_publicacion = input("Ingrese el nuevo año de publicación del libro: ")
-                if biblioteca.actualizar_libro(isbn, titulo, autor, anio_publicacion):
-                    print("Libro actualizado exitosamente.")
+                if len(isbn) == 13 and isbn.isdigit():
+                    titulo = input("Ingrese el nuevo título del libro: ")
+                    autor = input("Ingrese el nuevo autor del libro: ")
+                    anio_publicacion = input(
+                        "Ingrese el nuevo año de publicación del libro: "
+                    )
+                    if biblioteca.actualizar_libro(
+                        isbn, titulo, autor, anio_publicacion
+                    ):
+                        print("Libro actualizado exitosamente.")
+                    else:
+                        print("ISBN no encontrado. No se pudo actualizar el libro.")
                 else:
-                    print("ISBN no encontrado. No se pudo actualizar el libro.")
-
+                    print("ISBN inválido. Debe tener 13 dígitos y ser numérico.")
             elif opcion == 3:
                 isbn = input("Ingrese el ISBN del libro que desea buscar: ")
                 libro = biblioteca.buscar_libro(isbn)
