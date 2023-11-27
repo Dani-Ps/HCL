@@ -1,8 +1,6 @@
 """Este módulo contiene la implementación de la clase Libro."""
-
-
 class Libro:
-    """Clase que representa una biblioteca."""
+    """Clase que representa un libro."""
 
     def __init__(self, isbn, titulo, autor, anio_publicacion):
         """Inicializa una instancia de la clase Libro con los atributos dados."""
@@ -20,7 +18,7 @@ class Libro:
             f"Año de Publicación: {self.anio_publicacion}"
         )
 
-    def __dict__(self):
+    def to_dict(self):
         """Devuelve un diccionario que representa el libro."""
         return {
             "isbn": self.isbn,
@@ -29,13 +27,12 @@ class Libro:
             "anio_publicacion": self.anio_publicacion,
         }
 
-    def __validar_isbn(self, isbn):
+    def validar_isbn(self, isbn):
         """Valida que el ISBN tenga 13 caracteres y sean todos números."""
         return len(isbn) == 13 and isbn.isdigit()
 
     def set_isbn(self, isbn):
         """Establece el ISBN del libro con validación."""
-        if self.__validar_isbn(isbn):
-            self.isbn = isbn
-        else:
-            print("ISBN inválido. Debe tener 13 dígitos y ser numérico.")
+        if not self.validar_isbn(isbn):
+            raise ValueError("ISBN inválido. Debe tener 13 dígitos y ser numérico.")
+        self.isbn = isbn
