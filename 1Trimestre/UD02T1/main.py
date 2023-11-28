@@ -127,6 +127,5 @@ if __name__ == "__main__":
 
 # Casos de NO VALIDOS
 # libro_invalido_isbn = Libro("ISBNInvalido", "Libro Inválido", "Autor Inválido", "2022")
-# libro_invalido_titulo = Libro("1234567890123", "Este es un título muy largo que supera los 50 caracteres", "Autor Inválido", "2022")
-# libro_invalido_autor = Libro("Este es un autor muy largo que supera los 50 caracteres")
+# libro_invalido_titulo_autor = Libro("Este es un autor muy largo que supera los 50 caracteres")
 # libro_invalido_anio = Libro("1234567890123", "Libro Inválido", "Autor Inválido", "AñoInválido")
