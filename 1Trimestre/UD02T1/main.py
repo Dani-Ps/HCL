@@ -11,13 +11,16 @@ def validar_numero_4_digitos(valor, mensaje):
 
 def mostrar_menu():
     """Muestra el menú principal."""
-    print("\nMenú:")
-    print("1. Agregar libro")
-    print("2. Actualizar libro")
-    print("3. Buscar libro")
-    print("4. Eliminar libro")
-    print("5. Mostrar libros")
-    print("6. Guardar y salir")
+    print("\n=====================")
+    print("      MENÚ PRINCIPAL")
+    print("=====================")
+    print("1.  Agregar libro")
+    print("2.  Actualizar libro")
+    print("3.  Buscar libro")
+    print("4.  Eliminar libro")
+    print("5.  Mostrar libros")
+    print("6.  Guardar y salir")
+    print("=====================")
 
 def menu_principal(biblioteca):
     """Maneja el flujo principal de la aplicación."""
