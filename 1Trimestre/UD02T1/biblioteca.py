@@ -15,6 +15,9 @@ class Biblioteca:
         if libro.isbn not in self.lista_isbn:
             self.libros.append(libro)
             self.lista_isbn.add(libro.isbn)
+        else:
+            print("El libro ya existe. Vuelve a intentarlo.")
+
 
     def actualizar_libro(self, isbn, titulo, autor, anio_publicacion):
         """Actualiza la información de un libro en la biblioteca, identificado por su ISBN."""
