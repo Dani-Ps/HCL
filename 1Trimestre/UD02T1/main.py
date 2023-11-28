@@ -110,5 +110,23 @@ def validar_longitud(valor, mensaje):
 
 if __name__ == "__main__":
     biblioteca = Biblioteca()
+    # Casos de uso predefinidos
+    libros_auto = [
+        Libro("1234567890123", "Libro 1", "Autor 1", "2020"),
+        Libro("2345678901234", "Libro 2", "Autor 2", "2018"),
+        Libro("3456789012345", "Libro 3", "Autor 3", "2015"),
+        Libro("4567890123456", "Libro 4", "Autor 4", "2012"),
+        Libro("5678901234567", "Libro 5", "Autor 5", "2010"),
+    ]
+
+    for libro in libros_auto:
+        biblioteca.agregar_libro(libro)
+
     biblioteca.cargar_desde_archivo("biblioteca.json")
     menu_principal(biblioteca)
+
+# Casos de NO VALIDOS
+# libro_invalido_isbn = Libro("ISBNInvalido", "Libro Inválido", "Autor Inválido", "2022")
+# libro_invalido_titulo = Libro("1234567890123", "Este es un título muy largo que supera los 50 caracteres", "Autor Inválido", "2022")
+# libro_invalido_autor = Libro("Este es un autor muy largo que supera los 50 caracteres")
+# libro_invalido_anio = Libro("1234567890123", "Libro Inválido", "Autor Inválido", "AñoInválido")
