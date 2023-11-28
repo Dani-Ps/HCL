@@ -2,13 +2,6 @@
 from biblioteca import Biblioteca
 from libro import Libro
 
-def validar_numero_4_digitos(valor, mensaje):
-    """Valida que el valor sea un número de 4 dígitos."""
-    while not (len(valor) == 4 and valor.isdigit()):
-        print(f"{mensaje} debe ser un número de 4 dígitos.")
-        valor = input(f"Ingrese {mensaje.lower()}: ")
-    return valor
-
 def mostrar_menu():
     """Muestra el menú principal."""
     print("\n=====================")
@@ -105,6 +98,13 @@ def validar_longitud(valor, mensaje):
     """Valida la longitud de una cadena."""
     while not 1 <= len(valor) <= 50:
         print(f"{mensaje} debe tener entre 1 y 50 caracteres.")
+        valor = input(f"Ingrese {mensaje.lower()}: ")
+    return valor
+
+def validar_numero_4_digitos(valor, mensaje):
+    """Valida que el valor sea un número de 4 dígitos."""
+    while not (len(valor) == 4 and valor.isdigit()):
+        print(f"{mensaje} debe ser un número de 4 dígitos.")
         valor = input(f"Ingrese {mensaje.lower()}: ")
     return valor
 
