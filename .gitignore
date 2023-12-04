@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 *.vscode
 *.idea
 *_pychache_
 *venv
 *biblioteca
+=======
+__pycache__/
+*.json
+venv
+>>>>>>> 3cc37af35355e386461c5348c5561b25e7469da8
