@@ -1,7 +1,11 @@
-__pycache__/
+*.vscode
+*.idea
+*_pychache_
+*venv
+*biblioteca
 *.json
-venv
-Lib
-Scripts
-.pytest_cache
-idea
+*Lib
+*Scripts
+*.pytest_cache
+*idea
+
