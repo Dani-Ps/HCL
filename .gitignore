@@ -1,3 +1,7 @@
 __pycache__/
 *.json
 venv
+Lib
+Scripts
+.pytest_cache
+idea
