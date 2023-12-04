@@ -1,0 +1,5 @@
+*.vscode
+*.idea
+*_pychache_
+*venv
+*biblioteca
